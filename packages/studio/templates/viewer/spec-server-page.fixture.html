@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+  Studio viewer E2E 页面 fixture。
+  镜像 src/serve/server.js 内的内联 PAGE 模板（grep "const PAGE ="）。
+  浏览器 E2E 可加载本 fixture 驱动 viewer.js，无需启动真实服务；PAGE 变更时请同步更新。
+-->
+<html lang="zh-CN" data-theme="light">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="color-scheme" content="light dark">
+<title>Spec Viewer</title>
+<link rel="icon" href="data:,">
+<script>(function(){try{var t=localStorage.getItem('sv-theme');if(t!=='dark'&&t!=='light')t='light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t}catch(e){}})();</script>
+<link rel="stylesheet" href="/static/viewer.css">
+</head><body>
+<header id="appbar">
+  <span class="brand">Spec Viewer</span>
+  <nav id="apps" aria-label="应用">
+    <button type="button" data-mode="pulse" aria-current="page">指挥台</button>
+    <button type="button" data-mode="briefs">简报<span class="badge" hidden>0</span></button>
+    <button type="button" data-mode="specs">规格<span class="badge" hidden>0</span></button>
+    <button type="button" data-mode="domains">域<span class="badge" hidden>0</span></button>
+    <button type="button" data-mode="bugs">上报<span class="badge" hidden>0</span></button>
+    <button type="button" data-mode="data">数据<span class="badge" hidden>0</span></button>
+    <button type="button" data-mode="uikit">UI 控件库<span class="badge" hidden>0</span></button>
+  </nav>
+  <div id="appbar-end">
+    <input id="q" type="text" placeholder="搜索…" spellcheck="false" autocomplete="off">
+    <button type="button" id="toggleTheme" title="深色主题" aria-label="深色主题"><svg class="icon-moon" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M6.2 1.05a.75.75 0 0 1 .22 1.04 6 6 0 1 0 7.49 7.49.75.75 0 0 1 1.26.8A7.5 7.5 0 1 1 5.16.83a.75.75 0 0 1 1.04.22Z"/></svg><svg class="icon-sun" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 3.25a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0V4A.75.75 0 0 1 8 3.25Zm0 7.25a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm5.75-2.5a.75.75 0 0 1-.75.75h-.75a.75.75 0 0 1 0-1.5H13a.75.75 0 0 1 .75.75ZM4.5 8a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h.75A.75.75 0 0 1 4.5 8Zm7.78 3.78a.75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 1 1 1.06-1.06l.53.53a.75.75 0 0 1 0 1.06ZM5.31 5.31a.75.75 0 0 1-1.06 0l-.53-.53A.75.75 0 0 1 4.78 3.72l.53.53a.75.75 0 0 1 0 1.06Zm6.38-1.06a.75.75 0 0 1 0 1.06l-.53.53A.75.75 0 1 1 10.1 4.78l.53-.53a.75.75 0 0 1 1.06 0ZM4.78 10.1a.75.75 0 0 1 1.06 1.06l-.53.53a.75.75 0 1 1-1.06-1.06l.53-.53ZM8 12.25a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0V13a.75.75 0 0 1 .75-.75Z"/></svg></button>
+  </div>
+</header>
+<div id="workspace">
+<aside id="side"><div id="facet-head"><span>分类</span><button type="button" class="btn" id="toggleSide" title="折叠分类" aria-label="折叠分类">«</button></div><div id="tree"></div></aside>
+<div id="main"><div id="chrome"><div id="bar"></div><div id="inbox-tools" hidden><button type="button" id="facetToggle" hidden>分类</button><div id="segs" class="seg" hidden></div></div></div><div id="content"></div></div>
+</div>
+<div id="drawer" hidden>
+  <div id="drawer-mask" data-drawer-close></div>
+  <div id="drawer-panel" role="dialog" aria-modal="true">
+    <div id="drawer-bar"></div>
+    <div id="drawer-scroll">
+      <div id="drawer-body"></div>
+      <iframe id="preview" title="预览" hidden></iframe>
+    </div>
+  </div>
+</div>
+<script type="module" src="/static/viewer.js"></script>
+</body></html>

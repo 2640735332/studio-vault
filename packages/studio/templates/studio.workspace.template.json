@@ -1,0 +1,30 @@
+{
+  "$schema": "./studio.workspace.schema.json",
+  "_template": "团队模板（不含路径/凭据）；供各机 `studio workspace import --template` 生成本机注册表。`<project>` / `<workspaceRoot>` 为占位符。token 只允许 credentialRef 引用名，禁止出现明文。",
+  "version": 1,
+  "projects": [
+    {
+      "id": "<project>",
+      "name": "<project>",
+      "gameRepo": "<workspaceRoot>/<project>",
+      "worktrees": [],
+      "sharedRepo": "<workspaceRoot>/shared_<project>",
+      "sharedRemote": "https://github.com/<owner>/shared-<project>.git",
+      "vault": {
+        "url": "http://<vault-host>:3460",
+        "project": "<project>"
+      },
+      "studio": {
+        "port": 3456
+      },
+      "kb": {
+        "namespace": "<project>"
+      },
+      "credentialRef": "studio:<project>"
+    }
+  ],
+  "settings": {
+    "workspaceRootPolicy": "parent-of-game-repo",
+    "teamTemplate": true
+  }
+}

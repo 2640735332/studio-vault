@@ -1,0 +1,38 @@
+{
+  "buildings": [
+    {
+      "id": "demo_house",
+      "name": "演示小屋",
+      "category": "residential",
+      "grid_size": [
+        2,
+        2
+      ],
+      "build_cost": {
+        "wood": 10,
+        "stone": 5
+      },
+      "build_time": 20,
+      "housing_capacity": 2,
+      "playable": true
+    },
+    {
+      "id": "demo_workshop",
+      "name": "演示工坊",
+      "category": "production",
+      "grid_size": [
+        3,
+        2
+      ],
+      "build_cost": {
+        "wood": 20,
+        "stone": 10
+      },
+      "build_time": 40,
+      "job_slots": [
+        "builder"
+      ],
+      "playable": true
+    }
+  ]
+}

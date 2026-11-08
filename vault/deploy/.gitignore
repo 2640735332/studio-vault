@@ -1,0 +1,7 @@
+# Local secrets and runtime data for the compose deployment.
+.env
+*.env
+!*.env.example
+data/
+backup/
+*.log

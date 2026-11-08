@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://studio.local/schema/studio.config.schema.json",
+  "title": "studio.config.json（游戏仓库内、随 clone 分发；不含 token）",
+  "type": "object",
+  "required": [
+    "version",
+    "project",
+    "shared",
+    "vault",
+    "studio",
+    "kb"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "project": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "gameRepo": {
+          "type": "string",
+          "default": "."
+        }
+      }
+    },
+    "shared": {
+      "type": "object",
+      "required": [
+        "repo",
+        "branch",
+        "mirror"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "repo": {
+          "type": "string"
+        },
+        "branch": {
+          "type": "string",
+          "default": "main"
+        },
+        "remote": {
+          "type": "string"
+        },
+        "root": {
+          "type": "string",
+          "description": "支持 WORKSPACE_ROOT 占位；STUDIO_SHARED_ROOT 可覆盖"
+        },
+        "mirror": {
+          "type": "string",
+          "const": "docs/briefs"
+        },
+        "lfs": {
+          "type": "string",
+          "enum": [
+            "text",
+            "binary",
+            "all",
+            "none"
+          ],
+          "default": "text"
+        }
+      }
+    },
+    "vault": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "url",
+        "project"
+      ],
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "project": {
+          "type": "string"
+        }
+      }
+    },
+    "studio": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "port": {
+          "type": "integer",
+          "default": 3456
+        },
+        "worktreePortBase": {
+          "type": "integer",
+          "default": 3457
+        }
+      }
+    },
+    "kb": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "namespace": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

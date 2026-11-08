@@ -1,0 +1,24 @@
+# systemd unit for an optional Linux host deployment (compose users do not need this file).
+# Install: sudo cp vault.service /etc/systemd/system/vault.service
+#          sudo systemctl daemon-reload && sudo systemctl enable --now vault
+# Compose users do not need this file (docker compose already sets restart: unless-stopped).
+[Unit]
+Description=Vault data service (Studio)
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=vault
+Group=vault
+WorkingDirectory=/opt/vault/app
+EnvironmentFile=-/etc/vault/vault.env
+ExecStart=/usr/bin/node /opt/vault/app/src/server.mjs
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65536
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="780" viewBox="0 0 1600 780" role="img" aria-labelledby="dg2t dg2d">
+  <title id="dg2t">The Studio daily loop: seven stations from idea to reviewed record</title>
+  <desc id="dg2d">Horizontal workflow with seven stations — idea, brief, spec/track, implementation, bug report, Vault and viewer — each annotated with the matching CLI command and companion skill, plus a fix loop and a review loop.</desc>
+  <defs>
+    <marker id="ge" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#9A9084"/></marker>
+  </defs>
+  <style>
+    text { font-family: "Segoe UI", "Microsoft YaHei", system-ui, -apple-system, sans-serif; }
+    .bg { fill: #FAF7F2; }
+    .card { fill: #FFFFFF; stroke: #E3DCD2; stroke-width: 1.5; }
+    .mono { font-family: "Cascadia Mono", "Consolas", "SFMono-Regular", monospace; }
+    .title { font-size: 25px; font-weight: 700; fill: #2B2723; }
+    .subtitle { font-size: 13.5px; fill: #857C70; }
+    .badge { font-size: 13px; font-weight: 700; fill: #FFFFFF; }
+    .num { font-size: 11.5px; font-weight: 700; }
+    .stage { font-size: 15.5px; font-weight: 700; fill: #2B2723; }
+    .stageZh { font-size: 11px; fill: #857C70; }
+    .artifact { font-size: 10.5px; fill: #3E7C74; }
+    .note { font-size: 10px; fill: #857C70; }
+    .cmd { font-size: 10.5px; fill: #3E7C74; }
+    .skill { font-size: 10px; font-weight: 700; fill: #D4551F; }
+    .phase { font-size: 10px; font-weight: 600; fill: #A79B8B; letter-spacing: 1.3px; }
+    .loop { font-size: 11px; font-weight: 600; fill: #2B2723; }
+    .legend { font-size: 11px; fill: #857C70; }
+    .ln { fill: none; stroke: #B4A99A; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .lnl { fill: none; stroke: #9A9084; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+  <rect class="bg" width="1600" height="780"/>
+
+  <!-- header -->
+  <rect x="55" y="40" width="34" height="34" rx="9" fill="#D4551F"/>
+  <text class="badge" x="72" y="62" text-anchor="middle">02</text>
+  <text class="title" x="106" y="65">The daily loop</text>
+  <text class="subtitle" x="106" y="91">日常工作流 · idea → brief → spec → build → bug → Vault → review</text>
+
+  <!-- phase brackets -->
+  <path d="M66 164 H 678" fill="none" stroke="#D9D0C4" stroke-width="1.4"/>
+  <path d="M66 164 V 156" fill="none" stroke="#D9D0C4" stroke-width="1.4"/>
+  <path d="M678 164 V 156" fill="none" stroke="#D9D0C4" stroke-width="1.4"/>
+  <text class="phase" x="372" y="150" text-anchor="middle">AUTHOR 编写</text>
+
+  <path d="M708 164 H 1082" fill="none" stroke="#D9D0C4" stroke-width="1.4"/>
+  <path d="M708 164 V 156" fill="none" stroke="#D9D0C4" stroke-width="1.4"/>
+  <path d="M1082 164 V 156" fill="none" stroke="#D9D0C4" stroke-width="1.4"/>
+  <text class="phase" x="895" y="150" text-anchor="middle">BUILD 构建</text>
+
+  <path d="M1136 164 H 1534" fill="none" stroke="#D9D0C4" stroke-width="1.4"/>
+  <path d="M1136 164 V 156" fill="none" stroke="#D9D0C4" stroke-width="1.4"/>
+  <path d="M1534 164 V 156" fill="none" stroke="#D9D0C4" stroke-width="1.4"/>
+  <text class="phase" x="1335" y="150" text-anchor="middle">RECORD &amp; REVIEW 记录与评审</text>
+
+  <!-- station 01: idea -->
+  <rect class="card" x="66" y="196" width="184" height="180" rx="12"/>
+  <rect x="80" y="210" width="26" height="26" rx="7" fill="#D4551F"/>
+  <text class="num" x="93" y="228" text-anchor="middle" fill="#FFFFFF">01</text>
+  <text class="stage" x="82" y="264">Idea</text>
+  <text class="stageZh" x="82" y="284">想法</text>
+  <text class="artifact mono" x="82" y="308">one-line pitch</text>
+  <path d="M82 318 H 234" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="note" x="82" y="338">why now · who for</text>
+  <text class="note" x="82" y="356">start from nothing 从零开始</text>
+  <text class="cmd mono" x="158" y="402" text-anchor="middle">studio init --demo</text>
+  <text class="cmd mono" x="158" y="418" text-anchor="middle">studio serve</text>
+  <rect x="103" y="428" width="110" height="24" rx="12" fill="#FBEDE4" stroke="#EBCDB8" stroke-width="1"/>
+  <text class="skill" x="158" y="444" text-anchor="middle">studio-workspace</text>
+
+  <!-- station 02: brief -->
+  <rect class="card" x="280" y="196" width="184" height="180" rx="12"/>
+  <rect x="294" y="210" width="26" height="26" rx="7" fill="#D4551F"/>
+  <text class="num" x="307" y="228" text-anchor="middle" fill="#FFFFFF">02</text>
+  <text class="stage" x="296" y="264">Brief</text>
+  <text class="stageZh" x="296" y="284">简报</text>
+  <text class="artifact mono" x="296" y="308">BRIEF.md + status</text>
+  <path d="M296 318 H 448" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="note" x="296" y="338">goal · constraints 目标约束</text>
+  <text class="note" x="296" y="356">decisions logged 决策留痕</text>
+  <text class="cmd mono" x="372" y="402" text-anchor="middle">studio sync</text>
+  <text class="cmd mono" x="372" y="418" text-anchor="middle">studio commit</text>
+  <rect x="327" y="428" width="90" height="24" rx="12" fill="#FBEDE4" stroke="#EBCDB8" stroke-width="1"/>
+  <text class="skill" x="372" y="444" text-anchor="middle">studio-brief</text>
+
+  <!-- station 03: spec / track -->
+  <rect class="card" x="494" y="196" width="184" height="180" rx="12"/>
+  <rect x="508" y="210" width="26" height="26" rx="7" fill="#D4551F"/>
+  <text class="num" x="521" y="228" text-anchor="middle" fill="#FFFFFF">03</text>
+  <text class="stage" x="510" y="264">Spec / Track</text>
+  <text class="stageZh" x="510" y="284">规格与轨道</text>
+  <text class="artifact mono" x="510" y="308">specs/&lt;pkg&gt;/&lt;track&gt;/</text>
+  <path d="M510 318 H 662" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="note" x="510" y="338">packages + tracks 规格轨道</text>
+  <text class="note" x="510" y="356">acceptance criteria 验收</text>
+  <text class="cmd mono" x="586" y="402" text-anchor="middle">studio bootstrap</text>
+  <text class="cmd mono" x="586" y="418" text-anchor="middle">studio sync</text>
+  <rect x="543" y="428" width="86" height="24" rx="12" fill="#FBEDE4" stroke="#EBCDB8" stroke-width="1"/>
+  <text class="skill" x="586" y="444" text-anchor="middle">studio-spec</text>
+
+  <!-- station 04: implementation -->
+  <rect class="card" x="708" y="196" width="184" height="180" rx="12"/>
+  <rect x="722" y="210" width="26" height="26" rx="7" fill="#D4551F"/>
+  <text class="num" x="735" y="228" text-anchor="middle" fill="#FFFFFF">04</text>
+  <text class="stage" x="724" y="264">Implementation</text>
+  <text class="stageZh" x="724" y="284">实现与验证</text>
+  <text class="artifact mono" x="724" y="308">code + tests + data</text>
+  <path d="M724 318 H 876" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="note" x="724" y="338">write-back as you go 边做边回写</text>
+  <text class="note" x="724" y="356">keep doctor green 体检常绿</text>
+  <text class="cmd mono" x="800" y="402" text-anchor="middle">studio watch</text>
+  <text class="cmd mono" x="800" y="418" text-anchor="middle">studio doctor</text>
+  <rect x="732" y="428" width="136" height="24" rx="12" fill="#FBEDE4" stroke="#EBCDB8" stroke-width="1"/>
+  <text class="skill" x="800" y="444" text-anchor="middle">studio-spec-pipeline</text>
+
+  <!-- station 05: bug report -->
+  <rect class="card" x="922" y="196" width="184" height="180" rx="12"/>
+  <rect x="936" y="210" width="26" height="26" rx="7" fill="#D4551F"/>
+  <text class="num" x="949" y="228" text-anchor="middle" fill="#FFFFFF">05</text>
+  <text class="stage" x="938" y="264">Bug report</text>
+  <text class="stageZh" x="938" y="284">缺陷上报</text>
+  <text class="artifact mono" x="938" y="308">Readme.md + evidence</text>
+  <path d="M938 318 H 1090" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="note" x="938" y="338">symptom · repro · logs 现象</text>
+  <text class="note" x="938" y="356">attach evidence files 附证据</text>
+  <text class="cmd mono" x="1014" y="402" text-anchor="middle">studio bug pending</text>
+  <text class="cmd mono" x="1014" y="418" text-anchor="middle">studio bug import-local</text>
+  <rect x="929" y="428" width="170" height="24" rx="12" fill="#FBEDE4" stroke="#EBCDB8" stroke-width="1"/>
+  <text class="skill" x="1014" y="444" text-anchor="middle">studio-bug · studio-bugfix</text>
+
+  <!-- station 06: vault -->
+  <rect class="card" x="1136" y="196" width="184" height="180" rx="12"/>
+  <rect x="1150" y="210" width="26" height="26" rx="7" fill="#3E7C74"/>
+  <text class="num" x="1163" y="228" text-anchor="middle" fill="#FFFFFF">06</text>
+  <text class="stage" x="1152" y="264">Vault</text>
+  <text class="stageZh" x="1152" y="284">数据服务</text>
+  <text class="artifact mono" x="1152" y="308">authoritative record</text>
+  <path d="M1152 318 H 1304" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="note" x="1152" y="338">PostgreSQL + blobs 元数据</text>
+  <text class="note" x="1152" y="356">audit trail 审计留痕</text>
+  <text class="cmd mono" x="1228" y="402" text-anchor="middle">POST /api/v1/bugs</text>
+  <text class="cmd mono" x="1228" y="418" text-anchor="middle">PUT /reports/:id/files</text>
+  <rect x="1168" y="428" width="120" height="24" rx="12" fill="#E4EFEC" stroke="#B8D3CD" stroke-width="1"/>
+  <text class="skill" x="1228" y="444" text-anchor="middle" fill="#3E7C74">studio-vault</text>
+
+  <!-- station 07: viewer -->
+  <rect class="card" x="1350" y="196" width="184" height="180" rx="12"/>
+  <rect x="1364" y="210" width="26" height="26" rx="7" fill="#3E7C74"/>
+  <text class="num" x="1377" y="228" text-anchor="middle" fill="#FFFFFF">07</text>
+  <text class="stage" x="1366" y="264">Viewer</text>
+  <text class="stageZh" x="1366" y="284">评审与流转</text>
+  <text class="artifact mono" x="1366" y="308">six read-only views</text>
+  <path d="M1366 318 H 1518" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="note" x="1366" y="338">triage &amp; review 评审</text>
+  <text class="note" x="1366" y="356">buttons → transitions 改状态</text>
+  <text class="cmd mono" x="1442" y="402" text-anchor="middle">viewer buttons</text>
+  <text class="cmd mono" x="1442" y="418" text-anchor="middle">POST /transition</text>
+  <rect x="1359" y="428" width="166" height="24" rx="12" fill="#E4EFEC" stroke="#B8D3CD" stroke-width="1"/>
+  <text class="skill" x="1442" y="444" text-anchor="middle" fill="#3E7C74">studio-brief · studio-bug</text>
+
+  <!-- forward arrows -->
+  <path class="ln" d="M254 286 H 272" marker-end="url(#ge)"/>
+  <path class="ln" d="M468 286 H 486" marker-end="url(#ge)"/>
+  <path class="ln" d="M682 286 H 700" marker-end="url(#ge)"/>
+  <path class="ln" d="M896 286 H 914" marker-end="url(#ge)"/>
+  <path class="ln" d="M1110 286 H 1128" marker-end="url(#ge)"/>
+  <path class="ln" d="M1324 286 H 1342" marker-end="url(#ge)"/>
+
+  <!-- fix loop -->
+  <path class="lnl" d="M1014 462 V 552 H 800 V 466" marker-end="url(#ge)"/>
+  <rect x="797" y="539" width="220" height="26" rx="13" fill="#FFFFFF" stroke="#E3DCD2" stroke-width="1.2"/>
+  <text class="loop" x="907" y="557" text-anchor="middle">fix loop 修复回环 · studio-bugfix</text>
+
+  <!-- review loop -->
+  <path class="lnl" d="M1442 462 V 632 H 372 V 466" marker-end="url(#ge)"/>
+  <rect x="812" y="619" width="190" height="26" rx="13" fill="#FFFFFF" stroke="#E3DCD2" stroke-width="1.2"/>
+  <text class="loop" x="907" y="637" text-anchor="middle">review loop 评审回环</text>
+
+  <!-- legend -->
+  <text class="legend" x="800" y="700" text-anchor="middle">solid arrows = stage flow 阶段推进 · U-shaped arrows = fix loop 修复回环 and review loop 评审回环</text>
+  <text class="legend" x="800" y="726" text-anchor="middle">every stage writes status back into Markdown and Git history · 每一步都写回 Markdown 与 Git</text>
+</svg>

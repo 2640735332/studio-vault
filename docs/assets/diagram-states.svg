@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="970" viewBox="0 0 1600 970" role="img" aria-labelledby="dg3t dg3d">
+  <title id="dg3t">Brief and bug state machines</title>
+  <desc id="dg3d">Two swimlanes. Brief: draft to ready to in progress to done, with a rejected side exit and undo, send-back and reject transitions. Bug: new to fixing to closed, with fixed, false-red and duplicate outcomes and a reopen loop. Every transition rewrites the Markdown status line.</desc>
+  <defs>
+    <marker id="ge" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#9A9084"/></marker>
+  </defs>
+  <style>
+    text { font-family: "Segoe UI", "Microsoft YaHei", system-ui, -apple-system, sans-serif; }
+    .bg { fill: #FAF7F2; }
+    .lane { fill: #FFFFFF; stroke: #E3DCD2; stroke-width: 1.8; }
+    .card { fill: #FFFFFF; stroke: #E3DCD2; stroke-width: 1.6; }
+    .mono { font-family: "Cascadia Mono", "Consolas", "SFMono-Regular", monospace; }
+    .title { font-size: 25px; font-weight: 700; fill: #2B2723; }
+    .subtitle { font-size: 13.5px; fill: #857C70; }
+    .badge { font-size: 13px; font-weight: 700; fill: #FFFFFF; }
+    .laneLabel { font-size: 11px; font-weight: 700; letter-spacing: 1.6px; }
+    .laneTitle { font-size: 20px; font-weight: 700; fill: #2B2723; }
+    .laneSub { font-size: 11px; fill: #857C70; }
+    .lanePath { font-size: 10px; fill: #3E7C74; }
+    .laneMeta { font-size: 10px; fill: #857C70; }
+    .nodeZh { font-size: 19px; font-weight: 700; fill: #2B2723; }
+    .nodeEn { font-size: 11px; fill: #857C70; }
+    .nodeNote { font-size: 9.5px; fill: #A79B8B; }
+    .arrowLabel { font-size: 10px; fill: #857C70; }
+    .chipText { font-size: 10px; fill: #5C5348; }
+    .chipLabel { font-size: 10.5px; font-weight: 700; fill: #857C70; }
+    .loopLabel { font-size: 10.5px; font-weight: 600; fill: #2B2723; }
+    .caption { font-size: 12px; fill: #857C70; }
+    .ln { fill: none; stroke: #9A9084; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .lnD { fill: none; stroke: #9A9084; stroke-width: 1.6; stroke-dasharray: 6 5; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+  <rect class="bg" width="1600" height="970"/>
+
+  <!-- header -->
+  <rect x="55" y="40" width="34" height="34" rx="9" fill="#D4551F"/>
+  <text class="badge" x="72" y="62" text-anchor="middle">03</text>
+  <text class="title" x="106" y="65">Two small state machines</text>
+  <text class="subtitle" x="106" y="91">两套状态机 · every transition rewrites the Markdown status line 每次变更都写回 Markdown</text>
+
+  <!-- brief lane -->
+  <rect class="lane" x="55" y="140" width="1490" height="380" rx="14"/>
+  <rect x="80" y="168" width="4" height="324" rx="2" fill="#D4551F"/>
+  <text class="laneLabel" x="100" y="194" fill="#D4551F">BRIEF LANE 简报泳道</text>
+  <text class="laneTitle" x="100" y="228">简报状态机</text>
+  <text class="laneSub" x="100" y="250">Brief status machine</text>
+  <text class="lanePath mono" x="100" y="276">docs/briefs/&lt;folder&gt;/BRIEF.md</text>
+  <text class="laneMeta" x="100" y="298">状态: line · 5 states · 7 actions</text>
+
+  <rect class="card" x="320" y="320" width="200" height="90" rx="12"/>
+  <text class="nodeZh" x="420" y="352" text-anchor="middle">草稿</text>
+  <text class="nodeEn" x="420" y="376" text-anchor="middle">Draft · starting point</text>
+
+  <rect class="card" x="643" y="320" width="200" height="90" rx="12"/>
+  <text class="nodeZh" x="743" y="352" text-anchor="middle">可交 spec-engine</text>
+  <text class="nodeEn" x="743" y="376" text-anchor="middle">Ready for spec-engine</text>
+
+  <rect class="card" x="966" y="320" width="200" height="90" rx="12"/>
+  <text class="nodeZh" x="1066" y="352" text-anchor="middle">实现中</text>
+  <text class="nodeEn" x="1066" y="376" text-anchor="middle">In progress</text>
+
+  <rect class="card" x="1289" y="320" width="200" height="90" rx="12"/>
+  <text class="nodeZh" x="1389" y="352" text-anchor="middle">已实现</text>
+  <text class="nodeEn" x="1389" y="376" text-anchor="middle">Done</text>
+
+  <rect class="card" x="804" y="196" width="200" height="78" rx="12"/>
+  <text class="nodeZh" x="904" y="228" text-anchor="middle">已否决</text>
+  <text class="nodeEn" x="904" y="248" text-anchor="middle">Rejected · terminal 终态</text>
+  <text class="nodeNote" x="904" y="264" text-anchor="middle">from 草稿 / 可交 / 实现中</text>
+
+  <path class="ln" d="M522 365 H 631" marker-end="url(#ge)"/>
+  <text class="arrowLabel" x="582" y="352" text-anchor="middle">mark_ready · 标记可交</text>
+  <path class="ln" d="M845 365 H 954" marker-end="url(#ge)"/>
+  <text class="arrowLabel" x="905" y="352" text-anchor="middle">start_impl · 开始实现</text>
+  <path class="ln" d="M1168 365 H 1277" marker-end="url(#ge)"/>
+  <text class="arrowLabel" x="1228" y="352" text-anchor="middle">mark_done · 已实现</text>
+
+  <path class="ln" d="M800 320 L 852 280" marker-end="url(#ge)"/>
+  <text class="arrowLabel" x="866" y="306">reject 否决</text>
+
+  <path class="lnD" d="M804 235 C 660 235 520 252 428 314" marker-end="url(#ge)"/>
+  <text class="arrowLabel" x="600" y="268" text-anchor="middle">undo 撤销</text>
+
+  <path class="lnD" d="M743 412 Q 581 490 431 416" marker-end="url(#ge)"/>
+  <text class="arrowLabel" x="581" y="482" text-anchor="middle">send_back 退回</text>
+  <path class="lnD" d="M1066 412 Q 904 490 754 416" marker-end="url(#ge)"/>
+  <text class="arrowLabel" x="904" y="482" text-anchor="middle">undo 撤销</text>
+  <path class="lnD" d="M1389 412 Q 1227 490 1077 416" marker-end="url(#ge)"/>
+  <text class="arrowLabel" x="1227" y="482" text-anchor="middle">undo 撤销</text>
+
+  <text class="laneMeta" x="100" y="452">solid arrows = forward 正向流转</text>
+  <text class="laneMeta" x="100" y="470">dashed arrows = undo / send-back / reject 回退</text>
+
+  <!-- bug lane -->
+  <rect class="lane" x="55" y="555" width="1490" height="345" rx="14"/>
+  <rect x="80" y="583" width="4" height="289" rx="2" fill="#3E7C74"/>
+  <text class="laneLabel" x="100" y="609" fill="#3E7C74">BUG LANE 缺陷泳道</text>
+  <text class="laneTitle" x="100" y="643">缺陷状态机</text>
+  <text class="laneSub" x="100" y="665">Bug status machine</text>
+  <text class="lanePath mono" x="100" y="691">game/reports/bugs/&lt;folder&gt;/Readme.md</text>
+  <text class="laneMeta" x="100" y="713">状态: line · 5 states · 6 actions</text>
+
+  <rect class="card" x="320" y="660" width="210" height="100" rx="12"/>
+  <text class="nodeZh" x="425" y="702" text-anchor="middle">新</text>
+  <text class="nodeEn" x="425" y="726" text-anchor="middle">New report</text>
+
+  <rect class="card" x="643" y="660" width="210" height="100" rx="12"/>
+  <text class="nodeZh" x="748" y="702" text-anchor="middle">修复中</text>
+  <text class="nodeEn" x="748" y="726" text-anchor="middle">In progress</text>
+
+  <rect class="card" x="966" y="660" width="200" height="100" rx="12"/>
+  <text class="nodeZh" x="1066" y="700" text-anchor="middle">已关闭</text>
+  <text class="nodeEn" x="1066" y="722" text-anchor="middle">Closed · 3 outcomes</text>
+  <text class="nodeNote" x="1066" y="740" text-anchor="middle">from 新 or 修复中</text>
+
+  <text class="chipLabel" x="1341" y="642" text-anchor="middle">close reasons 关闭原因</text>
+  <rect x="1206" y="655" width="270" height="30" rx="8" fill="#F6F0E8" stroke="#EAE2D7" stroke-width="1"/>
+  <text class="chipText" x="1220" y="675">修复 · Fixed — mark_done</text>
+  <rect x="1206" y="695" width="270" height="30" rx="8" fill="#F6F0E8" stroke="#EAE2D7" stroke-width="1"/>
+  <text class="chipText" x="1220" y="715">非缺陷 · False red — close_false_red</text>
+  <rect x="1206" y="735" width="270" height="30" rx="8" fill="#F6F0E8" stroke="#EAE2D7" stroke-width="1"/>
+  <text class="chipText" x="1220" y="755">重复 · Duplicate — close_duplicate</text>
+
+  <path class="ln" d="M1166 710 L 1196 672" marker-end="url(#ge)"/>
+  <path class="ln" d="M1166 710 H 1196" marker-end="url(#ge)"/>
+  <path class="ln" d="M1166 710 L 1196 748" marker-end="url(#ge)"/>
+
+  <path class="ln" d="M532 710 H 631" marker-end="url(#ge)"/>
+  <text class="arrowLabel" x="586" y="697" text-anchor="middle">start_fix · 开始修复</text>
+  <path class="ln" d="M855 710 H 954" marker-end="url(#ge)"/>
+  <text class="arrowLabel" x="910" y="697" text-anchor="middle">mark_done · 关闭</text>
+
+  <path class="lnD" d="M748 658 Q 586 598 433 656" marker-end="url(#ge)"/>
+  <text class="arrowLabel" x="586" y="590" text-anchor="middle">interrupt / undo 中断·撤销</text>
+
+  <path class="lnD" d="M1066 762 V 852 H 425 V 762" marker-end="url(#ge)"/>
+  <rect x="655" y="839" width="190" height="26" rx="13" fill="#FFFFFF" stroke="#E3DCD2" stroke-width="1.2"/>
+  <text class="loopLabel" x="750" y="857" text-anchor="middle">reopen 重开 · any closed state</text>
+
+  <text class="laneMeta" x="100" y="790">close = fixed / false red / duplicate 三种关闭口径</text>
+  <text class="laneMeta" x="100" y="808">mark_done can close straight from 新 新可直接关闭</text>
+  <text class="laneMeta" x="100" y="826">reopen returns any closed item to 新 任意关闭态可重开</text>
+
+  <!-- caption -->
+  <text class="caption" x="800" y="922" text-anchor="middle">Every transition rewrites the Markdown 状态 line — 每次状态变更写回 BRIEF.md / Readme.md</text>
+  <text class="caption" x="800" y="946" text-anchor="middle">dashed arrows = undo / send-back / interrupt 回退类动作 · Vault is authoritative when enabled 开启 Vault 时以其为权威</text>
+</svg>

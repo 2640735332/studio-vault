@@ -1,0 +1,60 @@
+# Continuous integration for the studio-vault monorepo (Studio packages + Vault service).
+#
+# Total npm dependencies: zero. This workflow only needs Node.js + npm: the Vault
+# unit suite runs against in-memory / embedded stores, and the Studio smoke test
+# boots the real viewer server on a random loopback port.
+#
+# Windows is intentionally not part of the matrix: vault/deploy/windows/* are
+# optional example scripts, not tested code. The test suite itself is platform
+# neutral (path.join, random high ports) and runs on ubuntu-latest.
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: test (node ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [22, 24]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install workspace (no lifecycle scripts)
+        run: npm install --ignore-scripts
+
+      - name: Vault unit tests
+        run: npm run vault:test
+
+      - name: Verify workspace packages (pack + import + CLI)
+        run: npm run verify:packages
+
+      # Unified test entry point: Vault tests + every packages/studio/test/**/*.test.js
+      # (CLI scaffolding, transition, scan-bugs, server smoke).
+      - name: Studio tests (unified npm test)
+        run: npm run test
+
+      # Also run the end-to-end server smoke test as its own step so a broken
+      # viewer server shows up as a dedicated failure instead of a generic suite red.
+      - name: Studio server smoke test (explicit)
+        run: node --test packages/studio/test/serve/server-smoke.test.js

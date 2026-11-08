@@ -1,0 +1,21 @@
+# dependencies / build output
+node_modules/
+dist/
+coverage/
+*.tgz
+
+# environment / secrets (templates are committed)
+.env
+.env.*
+!.env.example
+.npmrc
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log
+
+# vault runtime artifacts (vault/.gitignore also covers its own runtime dirs)
+vault/data/
+vault/backups/
+vault/.restic-cache/

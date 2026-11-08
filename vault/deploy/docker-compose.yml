@@ -1,0 +1,124 @@
+# Vault data service - production compose stack.
+#
+#   cd vault/deploy
+#   cp .env.example .env      # fill VAULT_PG_PASSWORD / MINIO creds (never commit .env)
+#   docker compose up -d --build
+#   curl -s http://127.0.0.1:3460/api/v1/health | jq .
+#
+# Components: PostgreSQL (metadata/index truth) + MinIO (sha256 object storage) +
+# OpenSearch (full-text, rebuildable) + Vault API (repo root, zero runtime deps).
+# Note: MinIO/OpenSearch wiring for ingest/search is not completed yet; the API already
+# exposes /api/v1/ingest job bookkeeping and /api/v1/health queue metrics.
+name: vault
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: vault-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${VAULT_PG_USER:-vault}
+      POSTGRES_PASSWORD: ${VAULT_PG_PASSWORD:?set VAULT_PG_PASSWORD in deploy/.env}
+      POSTGRES_DB: ${VAULT_PG_DB:-vault}
+      TZ: ${TZ:-Asia/Shanghai}
+    volumes:
+      - vault_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${VAULT_PG_USER:-vault} -d ${VAULT_PG_DB:-vault}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    ports:
+      - "${VAULT_PG_BIND:-127.0.0.1}:5432:5432"
+
+  minio:
+    image: minio/minio:RELEASE.2025-04-22T22-12-26Z
+    container_name: vault-minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${VAULT_MINIO_USER:-vault}
+      MINIO_ROOT_PASSWORD: ${VAULT_MINIO_PASSWORD:?set VAULT_MINIO_PASSWORD in deploy/.env}
+    volumes:
+      - vault_minio:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+    ports:
+      - "${VAULT_MINIO_BIND:-127.0.0.1}:9000:9000"
+      - "${VAULT_MINIO_BIND:-127.0.0.1}:9001:9001"
+
+  opensearch:
+    image: opensearchproject/opensearch:2.19.1
+    container_name: vault-opensearch
+    restart: unless-stopped
+    environment:
+      discovery.type: single-node
+      DISABLE_SECURITY_PLUGIN: "true"
+      OPENSEARCH_JAVA_OPTS: "-Xms1g -Xmx1g"
+      bootstrap.memory_lock: "true"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - vault_opensearch:/usr/share/opensearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:9200/_cluster/health >/dev/null || exit 1"]
+      interval: 20s
+      timeout: 10s
+      retries: 15
+    ports:
+      - "${VAULT_OS_BIND:-127.0.0.1}:9200:9200"
+
+  vault-api:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: vault-api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    environment:
+      VAULT_BIND: 0.0.0.0
+      VAULT_PORT: "3460"
+      VAULT_DB: pg
+      VAULT_PG_HOST: postgres
+      VAULT_PG_PORT: "5432"
+      VAULT_PG_USER: ${VAULT_PG_USER:-vault}
+      VAULT_PG_PASSWORD: ${VAULT_PG_PASSWORD:?set VAULT_PG_PASSWORD in deploy/.env}
+      VAULT_PG_DB: ${VAULT_PG_DB:-vault}
+      VAULT_DATA_DIR: /data
+      VAULT_LOG_LEVEL: ${VAULT_LOG_LEVEL:-info}
+      VAULT_MIGRATE_ON_START: "1"
+      VAULT_DEV_SEED: "0"
+      # Object storage + full-text search wiring (accepted, not used by the skeleton API yet).
+      VAULT_MINIO_ENDPOINT: http://minio:9000
+      VAULT_MINIO_BUCKET: ${VAULT_MINIO_BUCKET:-vault}
+      VAULT_MINIO_USER: ${VAULT_MINIO_USER:-vault}
+      VAULT_MINIO_PASSWORD: ${VAULT_MINIO_PASSWORD:-}
+      VAULT_OPENSEARCH_URL: http://opensearch:9200
+    volumes:
+      - vault_api_data:/data
+    ports:
+      - "${VAULT_BIND:-0.0.0.0}:3460:3460"
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"fetch('http://127.0.0.1:3460/api/v1/health').then(r=>process.exit(r.status===200?0:1)).catch(()=>process.exit(1))\""]
+      interval: 10s
+      timeout: 5s
+      start_period: 15s
+      retries: 10
+
+volumes:
+  vault_pgdata:
+  vault_minio:
+  vault_opensearch:
+  vault_api_data:

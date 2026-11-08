@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="890" viewBox="0 0 1600 890" role="img" aria-labelledby="dg5t dg5d">
+  <title id="dg5t">Two ways in: onboarding a brand-new project or an existing project</title>
+  <desc id="dg5d">Two swimlanes. Lane A, a brand-new project, takes six required steps from cloning the toolchain to opening the viewer. Lane B, an existing project, needs two required steps and two optional ones. Both lanes end on the same toolchain, viewer and Vault.</desc>
+  <defs>
+    <marker id="ge" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#9A9084"/></marker>
+    <marker id="te" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#3E7C74"/></marker>
+  </defs>
+  <style>
+    text { font-family: "Segoe UI", "Microsoft YaHei", system-ui, -apple-system, sans-serif; }
+    .bg { fill: #FAF7F2; }
+    .lane { fill: #FFFFFF; stroke: #E3DCD2; stroke-width: 1.8; }
+    .card { fill: #FFFFFF; stroke: #E3DCD2; stroke-width: 1.6; }
+    .optCard { fill: #FFFFFF; stroke: #B8D3CD; stroke-width: 1.4; stroke-dasharray: 5 4; }
+    .chip { fill: #F6F0E8; stroke: #EAE2D7; stroke-width: 1; }
+    .mono { font-family: "Cascadia Mono", "Consolas", "SFMono-Regular", monospace; }
+    .title { font-size: 25px; font-weight: 700; fill: #2B2723; }
+    .subtitle { font-size: 13.5px; fill: #857C70; }
+    .badge { font-size: 13px; font-weight: 700; fill: #FFFFFF; }
+    .stepNum { font-size: 10.5px; font-weight: 700; fill: #FFFFFF; }
+    .laneLabel { font-size: 11px; font-weight: 700; letter-spacing: 1.6px; }
+    .laneTitle { font-size: 20px; font-weight: 700; fill: #2B2723; }
+    .laneSub { font-size: 11px; fill: #857C70; }
+    .laneMeta { font-size: 10px; fill: #857C70; }
+    .laneFoot { font-size: 10.5px; fill: #857C70; }
+    .cardTitle { font-size: 12.5px; font-weight: 700; fill: #2B2723; }
+    .cardZh { font-size: 11px; fill: #857C70; }
+    .cardDetail { font-size: 9.5px; fill: #857C70; }
+    .cmdText { font-size: 9.5px; fill: #3E7C74; }
+    .optTag { font-size: 8px; font-weight: 700; fill: #3E7C74; }
+    .noteTitle { font-size: 11.5px; font-weight: 700; fill: #2B2723; }
+    .barTitle { font-size: 13px; font-weight: 700; fill: #2B2723; }
+    .barSub { font-size: 10.5px; fill: #857C70; }
+    .legendText { font-size: 10.5px; fill: #857C70; }
+    .orText { font-size: 10px; fill: #A79B8B; }
+    .ln { fill: none; stroke: #9A9084; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .lnD { fill: none; stroke: #3E7C74; stroke-width: 1.7; stroke-dasharray: 6 5; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+  <rect class="bg" width="1600" height="890"/>
+
+  <!-- header -->
+  <rect x="55" y="40" width="34" height="34" rx="9" fill="#D4551F"/>
+  <text class="badge" x="72" y="62" text-anchor="middle">05</text>
+  <text class="title" x="106" y="65">Two ways in · 两种接入方式</text>
+  <text class="subtitle" x="106" y="91">onboarding a brand-new project or an existing one · 之后同一套工具链 same toolchain either way</text>
+
+  <!-- lane A -->
+  <rect class="lane" x="55" y="130" width="1490" height="330" rx="14"/>
+  <rect x="80" y="158" width="4" height="278" rx="2" fill="#D4551F"/>
+  <text class="laneLabel" x="100" y="186" fill="#D4551F">LANE A · 泳道 A</text>
+  <text class="laneTitle" x="100" y="220">全新游戏工程</text>
+  <text class="laneSub" x="100" y="242">Brand-new project</text>
+  <text class="laneMeta" x="100" y="266">6 steps · from zero 从零开始</text>
+  <text class="laneMeta" x="100" y="286">Node &gt;= 22.5 · about 30 min 约 30 分钟</text>
+  <text class="laneMeta" x="100" y="310">outcome 产出：workspace · mirror · Vault</text>
+
+  <rect class="card" x="330" y="178" width="175" height="200" rx="12"/>
+  <rect x="342" y="190" width="26" height="26" rx="7" fill="#D4551F"/>
+  <text class="stepNum" x="355" y="207" text-anchor="middle">A1</text>
+  <text class="cardTitle" x="342" y="240">Clone the toolchain</text>
+  <text class="cardZh" x="342" y="260">克隆工具链</text>
+  <path d="M342 272 H 493" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="cardDetail" x="342" y="290">Node &gt;= 22.5 · no install</text>
+  <text class="cardDetail" x="342" y="306">zero runtime deps 零依赖</text>
+  <rect class="chip" x="342" y="324" width="151" height="24" rx="8"/>
+  <text class="cmdText mono" x="350" y="340">git clone &lt;repo&gt;</text>
+
+  <rect class="card" x="532" y="178" width="175" height="200" rx="12"/>
+  <rect x="544" y="190" width="26" height="26" rx="7" fill="#D4551F"/>
+  <text class="stepNum" x="557" y="207" text-anchor="middle">A2</text>
+  <text class="cardTitle" x="544" y="240">studio init</text>
+  <text class="cardZh" x="544" y="260">建工作区</text>
+  <path d="M544 272 H 695" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="cardDetail" x="544" y="290">config + 4 folders</text>
+  <text class="cardDetail" x="544" y="306">specs · briefs · bugs · data</text>
+  <rect class="chip" x="544" y="324" width="151" height="24" rx="8"/>
+  <text class="cmdText mono" x="552" y="340">studio init</text>
+
+  <rect class="card" x="734" y="178" width="175" height="200" rx="12"/>
+  <rect x="746" y="190" width="26" height="26" rx="7" fill="#D4551F"/>
+  <text class="stepNum" x="759" y="207" text-anchor="middle">A3</text>
+  <text class="cardTitle" x="746" y="240">Create shared repo</text>
+  <text class="cardZh" x="746" y="260">建空共享仓</text>
+  <path d="M746 272 H 897" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="cardDetail" x="746" y="290">GitHub / GitLab / Gitea</text>
+  <text class="cardDetail" x="746" y="306">needs docs/briefs/ 含目录</text>
+  <rect class="chip" x="746" y="324" width="151" height="24" rx="8"/>
+  <text class="cmdText mono" x="754" y="340">git init + push</text>
+
+  <rect class="card" x="936" y="178" width="175" height="200" rx="12"/>
+  <rect x="948" y="190" width="26" height="26" rx="7" fill="#D4551F"/>
+  <text class="stepNum" x="961" y="207" text-anchor="middle">A4</text>
+  <text class="cardTitle" x="948" y="240">Wire shared.*</text>
+  <text class="cardZh" x="948" y="260">填配置并 bootstrap</text>
+  <path d="M948 272 H 1099" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="cardDetail" x="948" y="290">shared.repo · remote · root</text>
+  <text class="cardDetail" x="948" y="306">mirror synced 物化镜像</text>
+  <rect class="chip" x="948" y="324" width="151" height="24" rx="8"/>
+  <text class="cmdText mono" x="956" y="340">studio bootstrap</text>
+
+  <rect class="card" x="1138" y="178" width="175" height="200" rx="12"/>
+  <rect x="1150" y="190" width="26" height="26" rx="7" fill="#D4551F"/>
+  <text class="stepNum" x="1163" y="207" text-anchor="middle">A5</text>
+  <text class="cardTitle" x="1150" y="240">Start Vault</text>
+  <text class="cardZh" x="1150" y="260">起 Vault 并建 token</text>
+  <path d="M1150 272 H 1301" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="cardDetail" x="1150" y="290">Docker Compose or local PG</text>
+  <text class="cardDetail" x="1150" y="306">token: reader/writer/admin</text>
+  <rect class="chip" x="1150" y="324" width="151" height="24" rx="8"/>
+  <text class="cmdText mono" x="1158" y="340">docker compose up</text>
+
+  <rect class="card" x="1340" y="178" width="175" height="200" rx="12"/>
+  <rect x="1352" y="190" width="26" height="26" rx="7" fill="#D4551F"/>
+  <text class="stepNum" x="1365" y="207" text-anchor="middle">A6</text>
+  <text class="cardTitle" x="1352" y="240">Open the viewer</text>
+  <text class="cardZh" x="1352" y="260">打开 viewer</text>
+  <path d="M1352 272 H 1503" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="cardDetail" x="1352" y="290">eight views · local only 本地</text>
+  <text class="cardDetail" x="1352" y="306">http://localhost:3456</text>
+  <rect class="chip" x="1352" y="324" width="151" height="24" rx="8"/>
+  <text class="cmdText mono" x="1360" y="340">studio serve</text>
+
+  <path class="ln" d="M509 278 H 526" marker-end="url(#ge)"/>
+  <path class="ln" d="M711 278 H 728" marker-end="url(#ge)"/>
+  <path class="ln" d="M913 278 H 930" marker-end="url(#ge)"/>
+  <path class="ln" d="M1115 278 H 1132" marker-end="url(#ge)"/>
+  <path class="ln" d="M1317 278 H 1334" marker-end="url(#ge)"/>
+  <text class="laneFoot" x="330" y="424">Outcome 产出 — workspace + shared mirror + Vault + viewer on http://localhost:3456</text>
+
+  <!-- lane B -->
+  <rect class="lane" x="55" y="490" width="1490" height="290" rx="14"/>
+  <rect x="80" y="518" width="4" height="238" rx="2" fill="#3E7C74"/>
+  <text class="laneLabel" x="100" y="546" fill="#3E7C74">LANE B · 泳道 B</text>
+  <text class="laneTitle" x="100" y="580">现有游戏工程</text>
+  <text class="laneSub" x="100" y="602">Existing project</text>
+  <text class="laneMeta" x="100" y="626">minimal changes · 2 required + 2 optional</text>
+  <text class="laneMeta" x="100" y="646">最小改动，先只读跑起来</text>
+  <text class="laneMeta" x="100" y="670">no code changes 不碰现有代码</text>
+
+  <rect class="card" x="330" y="525" width="205" height="200" rx="12"/>
+  <rect x="342" y="537" width="26" height="26" rx="7" fill="#3E7C74"/>
+  <text class="stepNum" x="355" y="554" text-anchor="middle">B1</text>
+  <text class="cardTitle" x="342" y="587">studio init</text>
+  <text class="cardZh" x="342" y="607">只新增配置与目录</text>
+  <path d="M342 619 H 523" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="cardDetail" x="342" y="637">+ studio.config.json</text>
+  <text class="cardDetail" x="342" y="653">+ 4 folders 新增四个目录</text>
+  <rect class="chip" x="342" y="671" width="181" height="24" rx="8"/>
+  <text class="cmdText mono" x="350" y="687">studio init</text>
+
+  <rect class="card" x="580" y="525" width="205" height="200" rx="12"/>
+  <rect x="592" y="537" width="26" height="26" rx="7" fill="#3E7C74"/>
+  <text class="stepNum" x="605" y="554" text-anchor="middle">B2</text>
+  <text class="cardTitle" x="592" y="587">Run the viewer</text>
+  <text class="cardZh" x="592" y="607">先只读跑起来</text>
+  <path d="M592 619 H 773" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="cardDetail" x="592" y="637">read-only by default 默认只读</text>
+  <text class="cardDetail" x="592" y="653">browse the existing tree 原地浏览</text>
+  <rect class="chip" x="592" y="671" width="181" height="24" rx="8"/>
+  <text class="cmdText mono" x="600" y="687">studio serve</text>
+
+  <rect class="optCard" x="830" y="525" width="205" height="200" rx="12"/>
+  <rect x="842" y="537" width="26" height="26" rx="7" fill="#3E7C74"/>
+  <text class="stepNum" x="855" y="554" text-anchor="middle">B3</text>
+  <rect x="949" y="540" width="74" height="20" rx="10" fill="#F1F7F5" stroke="#B8D3CD" stroke-width="1" stroke-dasharray="4 3"/>
+  <text class="optTag" x="986" y="554" text-anchor="middle">optional 可选</text>
+  <text class="cardTitle" x="842" y="587">Shared repo (optional)</text>
+  <text class="cardZh" x="842" y="607">可选：接入共享仓</text>
+  <path d="M842 619 H 1023" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="cardDetail" x="842" y="637">one config field + bootstrap</text>
+  <text class="cardDetail" x="842" y="653">shared.remote → mirror 镜像</text>
+  <rect class="chip" x="842" y="671" width="181" height="24" rx="8"/>
+  <text class="cmdText mono" x="850" y="687">studio bootstrap</text>
+
+  <rect class="optCard" x="1080" y="525" width="205" height="200" rx="12"/>
+  <rect x="1092" y="537" width="26" height="26" rx="7" fill="#3E7C74"/>
+  <text class="stepNum" x="1105" y="554" text-anchor="middle">B4</text>
+  <rect x="1199" y="540" width="74" height="20" rx="10" fill="#F1F7F5" stroke="#B8D3CD" stroke-width="1" stroke-dasharray="4 3"/>
+  <text class="optTag" x="1236" y="554" text-anchor="middle">optional 可选</text>
+  <text class="cardTitle" x="1092" y="587">Vault (optional)</text>
+  <text class="cardZh" x="1092" y="607">可选：接入 Vault</text>
+  <path d="M1092 619 H 1273" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="cardDetail" x="1092" y="637">Vault URL + writer token</text>
+  <text class="cardDetail" x="1092" y="653">turn on write channel 开写通道</text>
+  <rect class="chip" x="1092" y="671" width="181" height="24" rx="8"/>
+  <text class="cmdText mono" x="1100" y="687">vault.url + token</text>
+
+  <rect class="optCard" x="1325" y="525" width="196" height="200" rx="12"/>
+  <text class="noteTitle" x="1341" y="556">Minimal footprint 最小侵入</text>
+  <path d="M1341 570 H 1505" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="cardDetail" x="1341" y="592">no code changes 不改代码</text>
+  <text class="cardDetail" x="1341" y="610">existing files stay put 文件不动</text>
+  <text class="cardDetail" x="1341" y="628">old workflow keeps running</text>
+  <text class="cardDetail" x="1341" y="646">旧流程照常运行</text>
+  <rect class="chip" x="1341" y="672" width="164" height="24" rx="8"/>
+  <text class="cmdText mono" x="1349" y="688">only +1 file, +4 dirs</text>
+
+  <path class="ln" d="M539 625 H 574" marker-end="url(#ge)"/>
+  <path class="lnD" d="M789 625 H 824" marker-end="url(#te)"/>
+  <path class="lnD" d="M1039 625 H 1074" marker-end="url(#te)"/>
+  <text class="laneFoot" x="330" y="752">Required part is done after B2 — later steps are additive 必做两步完成即可日常使用</text>
+
+  <!-- or divider -->
+  <path d="M700 475 H 780" stroke="#D9D0C4" stroke-width="1.2"/>
+  <path d="M820 475 H 900" stroke="#D9D0C4" stroke-width="1.2"/>
+  <text class="orText" x="800" y="479" text-anchor="middle">or 或</text>
+
+  <!-- shared bar -->
+  <rect class="card" x="55" y="800" width="1490" height="64" rx="14"/>
+  <text class="barTitle" x="85" y="828">Same toolchain · same viewer · same Vault</text>
+  <text class="barSub" x="85" y="848">同一套工具链、同一个 viewer、同一个 Vault —— both paths converge on the same daily loop 两条路径汇入同一日常工作流</text>
+  <path class="ln" d="M1150 828 H 1184" marker-end="url(#ge)"/>
+  <text class="legendText" x="1196" y="832">required 必做</text>
+  <path class="lnD" d="M1310 828 H 1344" marker-end="url(#te)"/>
+  <text class="legendText" x="1356" y="832">optional 可选</text>
+</svg>

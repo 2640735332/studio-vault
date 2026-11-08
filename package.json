@@ -1,0 +1,48 @@
+{
+  "name": "studio-vault",
+  "version": "0.1.18",
+  "private": true,
+  "description": "Monorepo for Studio (a brief/bug workflow toolkit for game teams) and Vault (a zero-dependency Node data service): packages/{shared,studio,cli} + vault/",
+  "type": "module",
+  "license": "MIT",
+  "author": "Peinan",
+  "keywords": [
+    "studio",
+    "game-development",
+    "bug-tracker",
+    "workflow",
+    "brief",
+    "zero-dependency",
+    "nodejs",
+    "monorepo",
+    "vault",
+    "data-service"
+  ],
+  "workspaces": [
+    "packages/shared",
+    "packages/studio",
+    "packages/cli"
+  ],
+  "engines": {
+    "node": ">=22.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2640735332/studio-vault.git"
+  },
+  "homepage": "https://github.com/2640735332/studio-vault#readme",
+  "bugs": {
+    "url": "https://github.com/2640735332/studio-vault/issues"
+  },
+  "scripts": {
+    "pack:all": "npm pack --workspaces --pack-destination dist",
+    "verify:packages": "node scripts/verify-packages.mjs",
+    "test": "node --test \"vault/test/*.test.mjs\" \"packages/studio/test/**/*.test.js\"",
+    "publish:all": "npm publish --workspace @studio/shared && npm publish --workspace @studio/local && npm publish --workspace @studio/cli",
+    "vault:test": "node --test vault/test/*.test.mjs",
+    "vault:start": "npm --prefix vault start",
+    "vault:migrate": "npm --prefix vault run migrate",
+    "vault:migrate:dry-run": "npm --prefix vault run migrate:dry-run",
+    "vault:selftest": "npm --prefix vault run selftest"
+  }
+}

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="960" viewBox="0 0 1600 960" role="img" aria-labelledby="dg4t dg4d">
+  <title id="dg4t">Skills map: nine portable skills and the three targets they operate on</title>
+  <desc id="dg4d">Nine skill cards in a three by three grid — studio-workspace, studio-brief, studio-shared-repo, studio-spec, studio-spec-pipeline, studio-bug, studio-bugfix, studio-orchestration and studio-vault — mapped to the game repo, the game shared repo and the Vault service, with installation instructions.</desc>
+  <style>
+    text { font-family: "Segoe UI", "Microsoft YaHei", system-ui, -apple-system, sans-serif; }
+    .bg { fill: #FAF7F2; }
+    .card { fill: #FFFFFF; stroke: #E3DCD2; stroke-width: 1.5; }
+    .chip { fill: #F6F0E8; stroke: #EAE2D7; stroke-width: 1; }
+    .mono { font-family: "Cascadia Mono", "Consolas", "SFMono-Regular", monospace; }
+    .title { font-size: 25px; font-weight: 700; fill: #2B2723; }
+    .subtitle { font-size: 13.5px; fill: #857C70; }
+    .badge { font-size: 13px; font-weight: 700; fill: #FFFFFF; }
+    .idx { font-size: 10.5px; font-weight: 700; letter-spacing: 1.4px; }
+    .skillName { font-size: 15px; font-weight: 700; fill: #2B2723; }
+    .desc { font-size: 11px; fill: #857C70; }
+    .actsLabel { font-size: 9px; fill: #A79B8B; letter-spacing: 0.6px; }
+    .tagTxt { font-size: 9px; font-weight: 600; }
+    .panelTitle { font-size: 11px; font-weight: 700; fill: #A79B8B; letter-spacing: 1.4px; }
+    .panelHint { font-size: 9.5px; fill: #A79B8B; }
+    .blkTitle { font-size: 15px; font-weight: 700; fill: #2B2723; }
+    .blkCount { font-size: 10px; fill: #A79B8B; }
+    .blkSub { font-size: 10.5px; fill: #857C70; }
+    .blkLabel { font-size: 9px; fill: #A79B8B; letter-spacing: 0.6px; }
+    .blkSkills { font-size: 10.5px; }
+    .orchTxt { font-size: 10.5px; fill: #2B2723; }
+    .orchNote { font-size: 9.5px; fill: #A79B8B; }
+    .stripTitle { font-size: 13.5px; font-weight: 700; fill: #2B2723; }
+    .stripText { font-size: 10.5px; fill: #5C5348; }
+    .stripMono { font-size: 10px; fill: #3E7C74; }
+    .stripSmall { font-size: 9.5px; fill: #A79B8B; }
+  </style>
+  <rect class="bg" width="1600" height="960"/>
+
+  <!-- header -->
+  <rect x="55" y="40" width="34" height="34" rx="9" fill="#D4551F"/>
+  <text class="badge" x="72" y="62" text-anchor="middle">04</text>
+  <text class="title" x="106" y="65">Nine portable skills</text>
+  <text class="subtitle" x="106" y="91">九个可携带技能 · plain Markdown that teaches an AI agent how to use the workspace 给 agent 的工作流说明</text>
+
+  <!-- row 1 -->
+  <rect class="card" x="55" y="130" width="300" height="200" rx="12"/>
+  <rect x="69" y="132" width="272" height="3.5" rx="1.75" fill="#D4551F"/>
+  <text class="idx" x="73" y="162" fill="#D4551F">01</text>
+  <text class="skillName" x="73" y="194">studio-workspace</text>
+  <text class="desc" x="73" y="220">Set up, diagnose, run</text>
+  <text class="desc" x="73" y="240">工作区搭建、体检与运行</text>
+  <path d="M73 254 H 337" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="actsLabel" x="73" y="276">ACTS ON 作用于</text>
+  <rect x="73" y="284" width="72" height="22" rx="11" fill="#FBEDE4" stroke="#EBCDB8" stroke-width="1"/>
+  <text class="tagTxt" x="109" y="299" text-anchor="middle" fill="#D4551F">Game 游戏</text>
+  <rect x="153" y="284" width="72" height="22" rx="11" fill="none" stroke="#EDE6DC" stroke-width="1"/>
+  <text class="tagTxt" x="189" y="299" text-anchor="middle" fill="#C6BCAE">Shared 共享</text>
+  <rect x="233" y="284" width="72" height="22" rx="11" fill="none" stroke="#EDE6DC" stroke-width="1"/>
+  <text class="tagTxt" x="269" y="299" text-anchor="middle" fill="#C6BCAE">Vault 数据</text>
+
+  <rect class="card" x="383" y="130" width="300" height="200" rx="12"/>
+  <rect x="397" y="132" width="136" height="3.5" rx="1.75" fill="#D4551F"/>
+  <rect x="533" y="132" width="136" height="3.5" rx="1.75" fill="#9A9084"/>
+  <text class="idx" x="401" y="162" fill="#D4551F">02</text>
+  <text class="skillName" x="401" y="194">studio-brief</text>
+  <text class="desc" x="401" y="220">Write a brief, move status</text>
+  <text class="desc" x="401" y="240">写简报、推进状态</text>
+  <path d="M401 254 H 665" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="actsLabel" x="401" y="276">ACTS ON 作用于</text>
+  <rect x="401" y="284" width="72" height="22" rx="11" fill="#FBEDE4" stroke="#EBCDB8" stroke-width="1"/>
+  <text class="tagTxt" x="437" y="299" text-anchor="middle" fill="#D4551F">Game 游戏</text>
+  <rect x="481" y="284" width="72" height="22" rx="11" fill="#F2EDE5" stroke="#DDD5C9" stroke-width="1"/>
+  <text class="tagTxt" x="517" y="299" text-anchor="middle" fill="#857C70">Shared 共享</text>
+  <rect x="561" y="284" width="72" height="22" rx="11" fill="none" stroke="#EDE6DC" stroke-width="1"/>
+  <text class="tagTxt" x="597" y="299" text-anchor="middle" fill="#C6BCAE">Vault 数据</text>
+
+  <rect class="card" x="711" y="130" width="300" height="200" rx="12"/>
+  <rect x="725" y="132" width="272" height="3.5" rx="1.75" fill="#9A9084"/>
+  <text class="idx" x="729" y="162" fill="#857C70">03</text>
+  <text class="skillName" x="729" y="194">studio-shared-repo</text>
+  <text class="desc" x="729" y="220">Mirror, write back, lock</text>
+  <text class="desc" x="729" y="240">镜像、回写、加锁</text>
+  <path d="M729 254 H 993" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="actsLabel" x="729" y="276">ACTS ON 作用于</text>
+  <rect x="729" y="284" width="72" height="22" rx="11" fill="none" stroke="#EDE6DC" stroke-width="1"/>
+  <text class="tagTxt" x="765" y="299" text-anchor="middle" fill="#C6BCAE">Game 游戏</text>
+  <rect x="809" y="284" width="72" height="22" rx="11" fill="#F2EDE5" stroke="#DDD5C9" stroke-width="1"/>
+  <text class="tagTxt" x="845" y="299" text-anchor="middle" fill="#857C70">Shared 共享</text>
+  <rect x="889" y="284" width="72" height="22" rx="11" fill="none" stroke="#EDE6DC" stroke-width="1"/>
+  <text class="tagTxt" x="925" y="299" text-anchor="middle" fill="#C6BCAE">Vault 数据</text>
+
+  <!-- row 2 -->
+  <rect class="card" x="55" y="352" width="300" height="200" rx="12"/>
+  <rect x="69" y="354" width="272" height="3.5" rx="1.75" fill="#D4551F"/>
+  <text class="idx" x="73" y="384" fill="#D4551F">04</text>
+  <text class="skillName" x="73" y="416">studio-spec</text>
+  <text class="desc" x="73" y="442">Specs, tracks, domain SSOT</text>
+  <text class="desc" x="73" y="462">规格、轨道、域 SSOT</text>
+  <path d="M73 476 H 337" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="actsLabel" x="73" y="498">ACTS ON 作用于</text>
+  <rect x="73" y="506" width="72" height="22" rx="11" fill="#FBEDE4" stroke="#EBCDB8" stroke-width="1"/>
+  <text class="tagTxt" x="109" y="521" text-anchor="middle" fill="#D4551F">Game 游戏</text>
+  <rect x="153" y="506" width="72" height="22" rx="11" fill="none" stroke="#EDE6DC" stroke-width="1"/>
+  <text class="tagTxt" x="189" y="521" text-anchor="middle" fill="#C6BCAE">Shared 共享</text>
+  <rect x="233" y="506" width="72" height="22" rx="11" fill="none" stroke="#EDE6DC" stroke-width="1"/>
+  <text class="tagTxt" x="269" y="521" text-anchor="middle" fill="#C6BCAE">Vault 数据</text>
+
+  <rect class="card" x="383" y="352" width="300" height="200" rx="12"/>
+  <rect x="397" y="354" width="272" height="3.5" rx="1.75" fill="#D4551F"/>
+  <text class="idx" x="401" y="384" fill="#D4551F">05</text>
+  <text class="skillName" x="401" y="416">studio-spec-pipeline</text>
+  <text class="desc" x="401" y="442">Brief → track, with gates</text>
+  <text class="desc" x="401" y="462">简报到轨道与门禁</text>
+  <path d="M401 476 H 665" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="actsLabel" x="401" y="498">ACTS ON 作用于</text>
+  <rect x="401" y="506" width="72" height="22" rx="11" fill="#FBEDE4" stroke="#EBCDB8" stroke-width="1"/>
+  <text class="tagTxt" x="437" y="521" text-anchor="middle" fill="#D4551F">Game 游戏</text>
+  <rect x="481" y="506" width="72" height="22" rx="11" fill="none" stroke="#EDE6DC" stroke-width="1"/>
+  <text class="tagTxt" x="517" y="521" text-anchor="middle" fill="#C6BCAE">Shared 共享</text>
+  <rect x="561" y="506" width="72" height="22" rx="11" fill="none" stroke="#EDE6DC" stroke-width="1"/>
+  <text class="tagTxt" x="597" y="521" text-anchor="middle" fill="#C6BCAE">Vault 数据</text>
+
+  <rect class="card" x="711" y="352" width="300" height="200" rx="12"/>
+  <rect x="725" y="354" width="136" height="3.5" rx="1.75" fill="#D4551F"/>
+  <rect x="861" y="354" width="136" height="3.5" rx="1.75" fill="#3E7C74"/>
+  <text class="idx" x="729" y="384" fill="#D4551F">06</text>
+  <text class="skillName" x="729" y="416">studio-bug</text>
+  <text class="desc" x="729" y="442">File bugs with evidence</text>
+  <text class="desc" x="729" y="462">带证据上报缺陷</text>
+  <path d="M729 476 H 993" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="actsLabel" x="729" y="498">ACTS ON 作用于</text>
+  <rect x="729" y="506" width="72" height="22" rx="11" fill="#FBEDE4" stroke="#EBCDB8" stroke-width="1"/>
+  <text class="tagTxt" x="765" y="521" text-anchor="middle" fill="#D4551F">Game 游戏</text>
+  <rect x="809" y="506" width="72" height="22" rx="11" fill="none" stroke="#EDE6DC" stroke-width="1"/>
+  <text class="tagTxt" x="845" y="521" text-anchor="middle" fill="#C6BCAE">Shared 共享</text>
+  <rect x="889" y="506" width="72" height="22" rx="11" fill="#E4EFEC" stroke="#B8D3CD" stroke-width="1"/>
+  <text class="tagTxt" x="925" y="521" text-anchor="middle" fill="#3E7C74">Vault 数据</text>
+
+  <!-- row 3 -->
+  <rect class="card" x="55" y="574" width="300" height="200" rx="12"/>
+  <rect x="69" y="576" width="136" height="3.5" rx="1.75" fill="#D4551F"/>
+  <rect x="205" y="576" width="136" height="3.5" rx="1.75" fill="#3E7C74"/>
+  <text class="idx" x="73" y="606" fill="#D4551F">07</text>
+  <text class="skillName" x="73" y="638">studio-bugfix</text>
+  <text class="desc" x="73" y="664">Fix loop and BUG.md</text>
+  <text class="desc" x="73" y="684">修复闭环与缺陷总览</text>
+  <path d="M73 698 H 337" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="actsLabel" x="73" y="720">ACTS ON 作用于</text>
+  <rect x="73" y="728" width="72" height="22" rx="11" fill="#FBEDE4" stroke="#EBCDB8" stroke-width="1"/>
+  <text class="tagTxt" x="109" y="743" text-anchor="middle" fill="#D4551F">Game 游戏</text>
+  <rect x="153" y="728" width="72" height="22" rx="11" fill="none" stroke="#EDE6DC" stroke-width="1"/>
+  <text class="tagTxt" x="189" y="743" text-anchor="middle" fill="#C6BCAE">Shared 共享</text>
+  <rect x="233" y="728" width="72" height="22" rx="11" fill="#E4EFEC" stroke="#B8D3CD" stroke-width="1"/>
+  <text class="tagTxt" x="269" y="743" text-anchor="middle" fill="#3E7C74">Vault 数据</text>
+
+  <rect class="card" x="383" y="574" width="300" height="200" rx="12"/>
+  <rect x="397" y="576" width="90.7" height="3.5" rx="1.75" fill="#D4551F"/>
+  <rect x="487.7" y="576" width="90.7" height="3.5" rx="1.75" fill="#9A9084"/>
+  <rect x="578.4" y="576" width="90.6" height="3.5" rx="1.75" fill="#3E7C74"/>
+  <text class="idx" x="401" y="606" fill="#D4551F">08</text>
+  <text class="skillName" x="401" y="638">studio-orchestration</text>
+  <text class="desc" x="401" y="664">Multi-station agent runs</text>
+  <text class="desc" x="401" y="684">多站编排与调度</text>
+  <path d="M401 698 H 665" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="actsLabel" x="401" y="720">ACTS ON 作用于</text>
+  <rect x="401" y="728" width="72" height="22" rx="11" fill="#FBEDE4" stroke="#EBCDB8" stroke-width="1"/>
+  <text class="tagTxt" x="437" y="743" text-anchor="middle" fill="#D4551F">Game 游戏</text>
+  <rect x="481" y="728" width="72" height="22" rx="11" fill="#F2EDE5" stroke="#DDD5C9" stroke-width="1"/>
+  <text class="tagTxt" x="517" y="743" text-anchor="middle" fill="#857C70">Shared 共享</text>
+  <rect x="561" y="728" width="72" height="22" rx="11" fill="#E4EFEC" stroke="#B8D3CD" stroke-width="1"/>
+  <text class="tagTxt" x="597" y="743" text-anchor="middle" fill="#3E7C74">Vault 数据</text>
+
+  <rect class="card" x="711" y="574" width="300" height="200" rx="12"/>
+  <rect x="725" y="576" width="272" height="3.5" rx="1.75" fill="#3E7C74"/>
+  <text class="idx" x="729" y="606" fill="#3E7C74">09</text>
+  <text class="skillName" x="729" y="638">studio-vault</text>
+  <text class="desc" x="729" y="664">REST, tokens, reports</text>
+  <text class="desc" x="729" y="684">接口、令牌、报告</text>
+  <path d="M729 698 H 993" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="actsLabel" x="729" y="720">ACTS ON 作用于</text>
+  <rect x="729" y="728" width="72" height="22" rx="11" fill="none" stroke="#EDE6DC" stroke-width="1"/>
+  <text class="tagTxt" x="765" y="743" text-anchor="middle" fill="#C6BCAE">Game 游戏</text>
+  <rect x="809" y="728" width="72" height="22" rx="11" fill="none" stroke="#EDE6DC" stroke-width="1"/>
+  <text class="tagTxt" x="845" y="743" text-anchor="middle" fill="#C6BCAE">Shared 共享</text>
+  <rect x="889" y="728" width="72" height="22" rx="11" fill="#E4EFEC" stroke="#B8D3CD" stroke-width="1"/>
+  <text class="tagTxt" x="925" y="743" text-anchor="middle" fill="#3E7C74">Vault 数据</text>
+
+  <!-- targets panel -->
+  <rect class="card" x="1045" y="130" width="500" height="644" rx="14"/>
+  <text class="panelTitle" x="1070" y="164">TARGETS 作用对象</text>
+  <text class="panelHint" x="1521" y="164" text-anchor="end">coloured tags on each card = where it acts 卡片底部彩标即映射</text>
+
+  <rect class="card" x="1069" y="196" width="452" height="150" rx="12"/>
+  <rect x="1071" y="212" width="3.5" height="118" rx="1.75" fill="#D4551F"/>
+  <text class="blkTitle" x="1089" y="226">Game repo 游戏工程</text>
+  <text class="blkCount" x="1501" y="226" text-anchor="end">6 skills</text>
+  <text class="blkSub" x="1089" y="246">the workspace you open 每天打开的工作区</text>
+  <text class="blkLabel" x="1089" y="272">SKILLS 技能</text>
+  <text class="blkSkills" x="1089" y="294" fill="#D4551F">studio-workspace · studio-brief · studio-spec</text>
+  <text class="blkSkills" x="1089" y="314" fill="#D4551F">studio-spec-pipeline · studio-bug · studio-bugfix</text>
+
+  <rect class="card" x="1069" y="360" width="452" height="150" rx="12"/>
+  <rect x="1071" y="376" width="3.5" height="118" rx="1.75" fill="#9A9084"/>
+  <text class="blkTitle" x="1089" y="390">Game shared repo 游戏共享工程</text>
+  <text class="blkCount" x="1501" y="390" text-anchor="end">2 skills</text>
+  <text class="blkSub" x="1089" y="410">team mirror + history 团队镜像与历史</text>
+  <text class="blkLabel" x="1089" y="436">SKILLS 技能</text>
+  <text class="blkSkills" x="1089" y="458" fill="#857C70">studio-brief · studio-shared-repo</text>
+
+  <rect class="card" x="1069" y="524" width="452" height="150" rx="12"/>
+  <rect x="1071" y="540" width="3.5" height="118" rx="1.75" fill="#3E7C74"/>
+  <text class="blkTitle" x="1089" y="554">Vault service 数据服务</text>
+  <text class="blkCount" x="1501" y="554" text-anchor="end">3 skills</text>
+  <text class="blkSub" x="1089" y="574">authoritative writer 权威写方</text>
+  <text class="blkLabel" x="1089" y="600">SKILLS 技能</text>
+  <text class="blkSkills" x="1089" y="622" fill="#3E7C74">studio-bug · studio-bugfix · studio-vault</text>
+
+  <path d="M1089 688 H 1501" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="orchTxt" x="1089" y="712">studio-orchestration 多站编排 → acts on all three targets 三列全覆盖</text>
+  <text class="orchNote" x="1089" y="734">optional skill — runs a large change as multiple stations 可选，依赖其他技能</text>
+
+  <!-- install strip -->
+  <rect class="card" x="55" y="796" width="1490" height="124" rx="14"/>
+  <text class="stripTitle" x="79" y="828">Where skills live 技能安装位置</text>
+  <text class="stripText" x="79" y="852">nine skills, one folder each 九个技能各占一个目录</text>
+  <text class="stripMono mono" x="79" y="874">skills/&lt;name&gt;/SKILL.md</text>
+  <text class="stripSmall" x="79" y="898">plain Markdown · no runtime · no dependencies 纯文档，零运行时依赖</text>
+
+  <path d="M620 812 V 904" stroke="#EFE8DE" stroke-width="1.2"/>
+  <text class="stripTitle" x="644" y="828">How to install 安装方式</text>
+  <text class="stripText" x="644" y="852">Copy into the game repo 复制到游戏工程：</text>
+  <text class="stripMono mono" x="644" y="874">&lt;game-repo&gt;/.agents/skills/&lt;name&gt;/</text>
+  <text class="stripSmall" x="644" y="898">also .claude/skills · .dsh/skills · .opencode/skills</text>
+
+  <path d="M1120 812 V 904" stroke="#EFE8DE" stroke-width="1.2"/>
+  <rect class="chip" x="1144" y="806" width="377" height="34" rx="9"/>
+  <text class="stripMono mono" x="1160" y="828">node scripts/install-skills.mjs --target &lt;game-repo&gt;</text>
+  <text class="stripSmall" x="1144" y="862">agent sessions load them automatically 会话自动加载 —— no runtime effect 不影响运行时</text>
+  <text class="stripSmall" x="1144" y="884">optional --dir .agents/skills · --force overwrites 可选参数</text>
+  <text class="stripSmall" x="1144" y="906">zero dependencies · MIT · works on Windows, macOS, Linux 跨平台</text>
+</svg>

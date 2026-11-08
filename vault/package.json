@@ -1,0 +1,34 @@
+{
+  "name": "@studio/vault",
+  "version": "0.1.3",
+  "private": true,
+  "type": "module",
+  "description": "Vault data service: PostgreSQL metadata/index + object storage + audit/token scopes (independent service, zero npm runtime dependencies).",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2640735332/studio-vault.git",
+    "directory": "vault"
+  },
+  "homepage": "https://github.com/2640735332/studio-vault/tree/main/vault#readme",
+  "bugs": {
+    "url": "https://github.com/2640735332/studio-vault/issues"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "start:dev": "node src/server.mjs",
+    "migrate": "node scripts/vault-migrate.mjs",
+    "migrate:status": "node scripts/vault-migrate.mjs --status",
+    "migrate:dry-run": "node scripts/vault-migrate.mjs --dry-run",
+    "partitions": "node scripts/vault-migrate.mjs partitions",
+    "token": "node scripts/vault-token.mjs",
+    "backup": "node scripts/vault-backup.mjs",
+    "restore-check": "node scripts/vault-restore-check.mjs",
+    "selftest": "node scripts/vault-selftest.mjs",
+    "retention": "node scripts/vault-retention.mjs",
+    "test": "node --test \"test/*.test.mjs\""
+  }
+}

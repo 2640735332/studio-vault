@@ -1,0 +1,29 @@
+{
+  "name": "@studio/shared",
+  "version": "0.1.18",
+  "description": "Studio shared zero-dependency primitives: config schema, JSON IO, fs tree, git, LFS pointers, doctor tiers. Node standard library only.",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "schema",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22.5"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2640735332/studio-vault.git",
+    "directory": "packages/shared"
+  },
+  "homepage": "https://github.com/2640735332/studio-vault/tree/main/packages/shared#readme",
+  "bugs": {
+    "url": "https://github.com/2640735332/studio-vault/issues"
+  }
+}

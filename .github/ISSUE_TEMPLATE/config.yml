@@ -1,0 +1,2 @@
+# Disable the empty "Open a blank issue" link so that reports use a template.
+blank_issues_enabled: false

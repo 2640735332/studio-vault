@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="920" viewBox="0 0 1600 920" role="img" aria-labelledby="dg1t dg1d">
+  <title id="dg1t">Studio and Vault topology: three repositories and one service</title>
+  <desc id="dg1d">Game repo and game shared repo are linked by materialize and write-back arrows guarded by a single-writer lock and journal. The studio-vault toolchain runs the CLI and a local viewer. The Vault service exposes REST, PostgreSQL, object storage and token scopes.</desc>
+  <defs>
+    <marker id="ge" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#9A9084"/></marker>
+    <marker id="gs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 Z" fill="#9A9084"/></marker>
+    <marker id="te" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#3E7C74"/></marker>
+    <marker id="ts" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 Z" fill="#3E7C74"/></marker>
+  </defs>
+  <style>
+    text { font-family: "Segoe UI", "Microsoft YaHei", system-ui, -apple-system, sans-serif; }
+    .bg { fill: #FAF7F2; }
+    .panel { fill: #FFFFFF; stroke: #E3DCD2; stroke-width: 1.8; }
+    .card { fill: #FFFFFF; stroke: #E3DCD2; stroke-width: 1.5; }
+    .chip { fill: #F6F0E8; stroke: #EAE2D7; stroke-width: 1.1; }
+    .mono { font-family: "Cascadia Mono", "Consolas", "SFMono-Regular", monospace; }
+    .title { font-size: 25px; font-weight: 700; fill: #2B2723; }
+    .subtitle { font-size: 13.5px; fill: #857C70; }
+    .h17 { font-size: 17px; font-weight: 600; fill: #2B2723; }
+    .h14 { font-size: 14px; font-weight: 600; fill: #2B2723; }
+    .h12 { font-size: 12.5px; font-weight: 600; fill: #2B2723; }
+    .fp { font-size: 12px; fill: #3E7C74; }
+    .fs { font-size: 11px; fill: #3E7C74; }
+    .v11 { font-size: 11px; fill: #857C70; }
+    .v10 { font-size: 10px; fill: #857C70; }
+    .o11 { font-size: 11px; font-weight: 600; fill: #D4551F; }
+    .badge { font-size: 13px; font-weight: 700; fill: #FFFFFF; }
+    .ln { fill: none; stroke: #B4A99A; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .lnT { fill: none; stroke: #3E7C74; stroke-width: 1.7; stroke-dasharray: 7 5; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+  <rect class="bg" width="1600" height="920"/>
+
+  <!-- header -->
+  <rect x="55" y="40" width="34" height="34" rx="9" fill="#D4551F"/>
+  <text class="badge" x="72" y="62" text-anchor="middle">01</text>
+  <text class="title" x="106" y="65">Three repositories, one service</text>
+  <text class="subtitle" x="106" y="91">三仓一服务拓扑 — game repo · shared repo · studio toolchain · Vault service</text>
+
+  <!-- game repo -->
+  <rect class="panel" x="55" y="128" width="460" height="352" rx="14"/>
+  <text class="h17" x="79" y="166">Game repo 游戏工程</text>
+  <text class="v11" x="79" y="188">one workspace per project · 每个项目一个工作区</text>
+
+  <rect class="chip" x="79" y="204" width="412" height="44" rx="10"/>
+  <text class="fp mono" x="95" y="223">docs/briefs/</text>
+  <text class="v10" x="95" y="239">mirror of shared briefs · 共享简报镜像</text>
+
+  <rect class="chip" x="79" y="256" width="412" height="44" rx="10"/>
+  <text class="fp mono" x="95" y="275">specs/</text>
+  <text class="v10" x="95" y="291">packages · tracks · CURRENT.md 规格与轨道</text>
+
+  <rect class="chip" x="79" y="308" width="412" height="44" rx="10"/>
+  <text class="fp mono" x="95" y="327">game/reports/bugs/</text>
+  <text class="v10" x="95" y="343">Readme.md + evidence files 缺陷与证据</text>
+
+  <rect class="chip" x="79" y="360" width="412" height="44" rx="10"/>
+  <text class="fp mono" x="95" y="379">game/src/data/</text>
+  <text class="v10" x="95" y="395">JSON data tables 数据表</text>
+
+  <rect class="chip" x="79" y="412" width="412" height="44" rx="10"/>
+  <text class="fp mono" x="95" y="431">studio.config.json</text>
+  <text class="v10" x="95" y="447">workspace config 工作区配置</text>
+
+  <!-- shared repo -->
+  <rect class="panel" x="675" y="128" width="400" height="282" rx="14"/>
+  <text class="h17" x="699" y="166">Game shared repo 游戏共享工程</text>
+  <text class="v11" x="699" y="188">briefs + specs of record · 团队权威文本</text>
+
+  <rect class="chip" x="699" y="204" width="352" height="46" rx="10"/>
+  <text class="fp mono" x="715" y="224">docs/briefs/</text>
+  <text class="v10" x="715" y="240">team briefs 团队简报</text>
+
+  <rect class="chip" x="699" y="258" width="352" height="46" rx="10"/>
+  <text class="fp mono" x="715" y="278">specs/</text>
+  <text class="v10" x="715" y="294">packages + tracks 规格与轨道</text>
+
+  <rect class="chip" x="699" y="312" width="352" height="46" rx="10"/>
+  <text class="fp mono" x="715" y="332">git + LFS (text)</text>
+  <text class="v10" x="715" y="348">versioned, diff-able 版本与大文件</text>
+
+  <rect x="675" y="424" width="400" height="38" rx="19" fill="#FFFFFF" stroke="#E3DCD2" stroke-width="1.5"/>
+  <text class="o11" x="875" y="448" text-anchor="middle">single-writer lock + journal · 单写方锁 + journal</text>
+
+  <!-- toolchain -->
+  <rect class="panel" x="55" y="600" width="460" height="260" rx="14"/>
+  <text class="h17" x="79" y="638">studio-vault 本工程 · toolchain</text>
+  <text class="v11" x="79" y="660">clone and run · zero runtime deps · 克隆即用零依赖</text>
+
+  <rect class="chip" x="79" y="676" width="412" height="54" rx="10"/>
+  <text class="fp mono" x="95" y="697">CLI — init · doctor · sync · commit · serve</text>
+  <text class="v10" x="95" y="713">one zero-dependency Node entry 零依赖入口</text>
+
+  <rect class="chip" x="79" y="740" width="412" height="54" rx="10"/>
+  <text class="fp mono" x="95" y="761">Viewer — http://localhost:3456</text>
+  <text class="v10" x="95" y="777">eight views · read-only by default 八个视图 · 默认只读</text>
+
+  <text class="v10" x="79" y="824">Node &gt;= 22.5 · MIT</text>
+  <text class="v10" x="491" y="824" text-anchor="end">no build · no npm runtime 无构建</text>
+
+  <!-- vault service -->
+  <rect class="panel" x="1135" y="128" width="400" height="732" rx="14"/>
+  <text class="h17" x="1159" y="166">Vault service 数据服务</text>
+  <text class="v11" x="1159" y="188">authoritative writer · optional 权威写方 · 可选</text>
+
+  <rect class="card" x="1159" y="196" width="352" height="132" rx="12"/>
+  <rect x="1177" y="212" width="10" height="10" rx="3" fill="#3E7C74"/>
+  <text class="h14" x="1195" y="222">REST /api/v1</text>
+  <text class="v11" x="1177" y="250">health · bugs · reports · links · ingest</text>
+  <text class="v11" x="1177" y="272">tokens: reader / writer / admin · 权限作用域</text>
+  <text class="v11" x="1177" y="294">If-Match optimistic lock · 409 乐观锁</text>
+
+  <rect class="card" x="1159" y="342" width="352" height="132" rx="12"/>
+  <rect x="1177" y="358" width="10" height="10" rx="3" fill="#3E7C74"/>
+  <text class="h14" x="1195" y="368">PostgreSQL 元数据</text>
+  <text class="v11" x="1177" y="396">metadata + partitions · migrations 001-007</text>
+  <text class="v11" x="1177" y="418">projects · bugs · reports · links · audit</text>
+  <text class="v11" x="1177" y="440">single source of truth · 单一事实源</text>
+
+  <rect class="card" x="1159" y="488" width="352" height="132" rx="12"/>
+  <rect x="1177" y="504" width="10" height="10" rx="3" fill="#3E7C74"/>
+  <text class="h14" x="1195" y="514">Object store 对象存储</text>
+  <text class="v11" x="1177" y="542">sha256 content-addressed blobs · 内容寻址</text>
+  <text class="v11" x="1177" y="564">screenshots · logs · report bundles</text>
+  <text class="v11" x="1177" y="586">immutable, deduplicated · 不可变去重</text>
+
+  <rect class="card" x="1159" y="634" width="352" height="132" rx="12"/>
+  <rect x="1177" y="650" width="10" height="10" rx="3" fill="#3E7C74"/>
+  <text class="h14" x="1195" y="660">Audit &amp; tokens 审计与令牌</text>
+  <text class="v11" x="1177" y="688">every write and cross-project read logged</text>
+  <text class="v11" x="1177" y="710">sha256(secret) · plaintext returned once</text>
+  <text class="v11" x="1177" y="732">scope per project · reader / writer / admin</text>
+
+  <text class="v11" x="1355" y="806" text-anchor="middle">Vault never reads the game repo · 从不反向读取游戏仓</text>
+
+  <!-- mirror arrows -->
+  <path class="ln" d="M675 250 H 522" marker-end="url(#ge)"/>
+  <text class="v11" x="598" y="236" text-anchor="middle">materialize 物化</text>
+  <path class="ln" d="M520 350 H 668" marker-end="url(#ge)"/>
+  <text class="v11" x="598" y="336" text-anchor="middle">write-back 回写</text>
+
+  <!-- REST arrows -->
+  <path class="lnT" d="M280 480 V 508 H 1120" marker-start="url(#ts)" marker-end="url(#te)"/>
+  <text class="fs" x="690" y="499">REST · bug status 缺陷状态 · read cache 读缓存</text>
+
+  <path class="lnT" d="M515 730 H 1120" marker-start="url(#ts)" marker-end="url(#te)"/>
+  <rect x="640" y="715" width="360" height="30" rx="15" fill="#FAF7F2" stroke="#E3DCD2" stroke-width="1.2"/>
+  <text class="fs" x="820" y="735" text-anchor="middle">REST /api/v1 · evidence upload 证据上传 · sync 同步</text>
+
+  <!-- legend -->
+  <rect class="card" x="690" y="540" width="385" height="150" rx="12"/>
+  <text class="h12" x="712" y="568">Reading the map 图例</text>
+  <path class="ln" d="M712 592 H 744" marker-end="url(#ge)"/>
+  <text class="v11" x="762" y="596">solid = files + Git 文件与 Git</text>
+  <path class="lnT" d="M712 620 H 744" marker-end="url(#te)"/>
+  <text class="v11" x="762" y="624">dashed = HTTP REST 接口调用</text>
+  <circle cx="716" cy="648" r="4.5" fill="#D4551F"/>
+  <text class="v11" x="732" y="652">Vault is the only writer 唯一写方</text>
+  <circle cx="716" cy="674" r="4.5" fill="#3E7C74"/>
+  <text class="v11" x="732" y="678">Studio is local, file-first 本地优先</text>
+</svg>

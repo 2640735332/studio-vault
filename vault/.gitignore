@@ -1,0 +1,20 @@
+# secrets / local runtime state
+.env
+*.env
+!*.env.example
+data/
+.vault-data/
+
+# node / artifacts
+node_modules/
+coverage/
+dist/
+*.log
+*.tmp
+*.bak
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
